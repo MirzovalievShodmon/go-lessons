@@ -1,8 +1,8 @@
-package main
+// package main
 
-import "fmt"
+// import "fmt"
 
-func main() {
+// func main() {
 	// num := 15
 	// if num > 9 && num < 100 {
 	// 	fmt.Println("Двузначное")
@@ -110,33 +110,41 @@ func main() {
 	// fmt.Scan(&a)
 	// fmt.Println(a)
 	// 
-	var a int
-	 fmt.Scan(&a)
-	 switch(a){
-	case 1,3,5,7,8,10,12:
-		fmt.Println("Этот месяц имеет"a)
-	case 2:	
-	    fmt.Println("Этот месяц имеет"a)
-	case 3:	
-	    fmt.Println("Этот месяц имеет"a)
-	case 4:
-		fmt.Println("Этот месяц имеет"a)	
-	case 5:
-		fmt.Println("Этот месяц имеет"a)	
-	case 6:
-		fmt.Println("Этот месяц имеет"a)	
-	case 7:
-		fmt.Println("Этот месяц имеет"a)	
-	case 8:
-		fmt.Println("Этот месяц имеет"a)	
-	case 9:
-		fmt.Println("Этот месяц имеет"a)
-	case 10:
-		fmt.Println("Этот месяц имеет"a)	
-	case 11:
-		fmt.Println("Этот месяц имеет"a)	
-	case 12:		
-		fmt.Println("Этот месяц имеет"a)
-	 }
-	 fmt.Println(a)
+// 	var a int
+// 	 fmt.Scan(&a)
+// 	 switch(a){
+// 	case 1,3,5,7,8,10,12:
+// 		fmt.Println("Этот месяц имеет"a)
+// 	case 2:	
+// 	    fmt.Println("Этот месяц имеет"a)
+// 	case 3:	
+// 	    fmt.Println("Этот месяц имеет"a)
+// 	case 4:
+// 		fmt.Println("Этот месяц имеет"a)	
+// 	case 5:
+// 		fmt.Println("Этот месяц имеет"a)	
+// 	case 6:
+// 		fmt.Println("Этот месяц имеет"a)	
+// 	case 7:
+// 		fmt.Println("Этот месяц имеет"a)	
+// 	case 8:
+// 		fmt.Println("Этот месяц имеет"a)	
+// 	case 9:
+// 		fmt.Println("Этот месяц имеет"a)
+// 	case 10:
+// 		fmt.Println("Этот месяц имеет"a)	
+// 	case 11:
+// 		fmt.Println("Этот месяц имеет"a)	
+// 	case 12:		
+// 		fmt.Println("Этот месяц имеет"a)
+// 	 }
+// 	 fmt.Println(a)
+// }
+
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("hello")
 }
