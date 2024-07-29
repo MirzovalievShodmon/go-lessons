@@ -17,6 +17,20 @@
 
 //fmt.Printf("Имя: %s, Возраст: %d лет\n", "Shodmon", 23)
 
+//Если мы хотим сразу определить несколько переменных и присвоить им начальные
+//значения, то можно обернуть их в скобки:
+// package main
+// import "fmt"
+
+// func main() {
+//     var (
+//         name string = "Tom"
+//         age int = 27
+//     )
+
+//     fmt.Println(name)   // Tom
+//     fmt.Println(age)    // 27
+// }
 //------------------------------------------------------------------------------------
 
 // КОММЕНТАРИИ
@@ -383,26 +397,173 @@
 //		 }
 //		 Inf(a)
 //	 }
-package main
-import "fmt"
-type Employee2 struct {
-	Name     string
-	Position string
-	Manager  *Employee2
-}
-// Функция для рекурсивного вывода информации о сотруднике и его менеджере
-func printEmployeeHierarchy(e *Employee2) {
-	if e == nil {
-		return
-	}
-	fmt.Printf("Name: %s, Position: %s\n", e.Name, e.Position)
-	if e.Manager != nil {
-		fmt.Printf("Manager: %s\n", e.Manager.Name)
-		printEmployeeHierarchy(e.Manager)
-	}
-}
-func main() {
-	manager := &Employee2{Name: "Alice", Position: "Senior Manager"}
-	employee2 := &Employee2{Name: "Bob", Position: "Junior Developer", Manager: manager}
-	printEmployeeHierarchy(employee2)
-}
+//
+//Хранение ссылки на структуру того же типа
+
+//Структуры могут содержать указатели на другие структуры того же типа, что позволяет создавать
+//связные структуры данных, такие как деревья или графы.
+
+//Задача
+// Дерево сотрудников
+// Создайте структуру Employee с полем Manager,
+// которое указывает на другого сотрудника (вложенная структура).
+// Напишите функцию, которая рекурсивно выводит информацию о сотруднике и его менеджере.
+// package main
+
+// import "fmt"
+
+// type Employee2 struct {
+// 	Name     string
+// 	Position string
+// 	Manager  *Employee2
+// }
+
+// // Функция для рекурсивного вывода информации о сотруднике и его менеджере
+// func printEmployeeHierarchy(e *Employee2) {
+// 	if e == nil {
+// 		return
+// 	}
+// 	fmt.Printf("Name: %s, Position: %s\n", e.Name, e.Position)
+// 	if e.Manager != nil {
+// 		fmt.Printf("Manager: %s\n", e.Manager.Name)
+// 		printEmployeeHierarchy(e.Manager)
+// 	}
+// }
+// func main() {
+// 	manager := &Employee2{Name: "Alice", Position: "Senior Manager"}
+// 	employee2 := &Employee2{Name: "Bob", Position: "Junior Developer", Manager: manager}
+// 	printEmployeeHierarchy(employee2)
+// }
+// Анонимные структуры
+
+// Анонимные структуры позволяют создавать структуры без явного определения типа. Они полезны для
+// создания временных структур или структур, используемых в ограниченном контексте.
+
+// package main
+
+// import "fmt"
+
+// func main() {
+//     person := struct {
+//         Name string
+//         Age  int
+//     }{
+//         Name: "Alice",
+//         Age:  30,
+//     }
+//     fmt.Println(person)
+// }
+
+// -----------------------------------------------------------------------------------
+
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	arr := [5]int{10, 20, 30, 40, 50}
+// 	length := len(arr)
+// 	capasity := cap(arr)
+// 	fmt.Println(length, capasity)
+// }
+
+// package main
+
+// import "fmt"
+
+//	func main() {
+//		arr := [5]int{1, 2, 3, 4, 5}
+//		slice := arr[1:4]
+//		fmt.Println(slice)
+//	}
+
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	var EmptySlice []int
+// 	fmt.Println(EmptySlice)
+// }
+
+// package main
+
+// import "fmt"
+
+//	func main() {
+//		EmptySlice := []int{}
+//		fmt.Println(EmptySlice)
+//	}
+
+// package main
+
+// import "fmt"
+
+//	func main() {
+//		slice:=[]int{1,2,3,4,5}
+//		fmt.Println(len(slice))
+//		fmt.Println(cap(slice))
+//	}
+//
+// ЗАДАЧА
+// Создайте срез из 5 строк и создайте новый срез, содержащий последние 3 элемента.
+// package main
+
+// import "fmt"
+
+//	func main() {
+//		arr := []string{"a", "b", "c", "d", "e"}
+//		arr2 := arr[len(arr)-3:]
+//		fmt.Println(arr2) // [d e]
+//	}
+//
+// ЗАДАЧА
+// Создайте массив из 4 логических значений и создайте срез, содержащий первые 2 элемента.
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	arr := [4]bool{true, false, true, false}
+// 	arr2 := arr[:2]
+// 	fmt.Println(arr2) // [true false]
+// }
+
+// ЗАДАЧА
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	slice := []int{1, 2, 3, 4, 5}
+// 	copy(slice[1:], slice)
+// 	fmt.Println(slice) // Вывод: [1 1 2 3 4]
+// }
+
+// ЗАДАЧА
+// Создайте массив из 6 целых чисел и создайте срез, содержащий элементы с индексами от 1 до 3. Выведите длину и вместимость среза.
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	arr := [6]int{1, 2, 3, 4, 5, 6}
+// 	slice := arr[1:4]
+// 	fmt.Println(slice)
+// 	fmt.Println(len(slice), cap(slice))
+// }
+
+// ЗАДАЧА
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	slice := []int{1, 2, 3, 4, 5}
+// 	slice2 := slice[1:3]
+// 	fmt.Println(slice2)
+// 	fmt.Println(len(slice2), cap(slice2))
+// }
+
+
+//-----------------------------------------------------------------------------------

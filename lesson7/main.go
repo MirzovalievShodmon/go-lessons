@@ -439,12 +439,112 @@
 // Создайте структуру Employee с полем Manager, которое указывает на другого
 // сотрудника (вложенная структура). Напишите функцию, которая рекурсивно
 // выводит информацию о сотруднике и его менеджере.
-package main
+// package main
 
-type Employee struct {
-	Manager *
-}
+// import (
+// 	"fmt"
+// )
 
-func main() {
+// type Employee struct {
+// 	Name     string
+// 	Position string
+// 	Manager  *Employee
+// }
 
-}
+// func RecInfo(a *Employee) {
+// 	if a == nil {
+// 		return
+// 	}
+// 	fmt.Printf("Name:%s, Position:%s\n", a.Name, a.Position)
+// 	if a.Manager != nil {
+// 		fmt.Printf("Manager:%s\n", a.Manager.Name)
+// 		RecInfo(a.Manager)
+// 	}
+
+// }
+//
+//	func main() {
+//		manager := &Employee{Name: "Abdulhalim", Position: "Senior Developer"}
+//		employee := &Employee{Name: "Shodmon", Position: "Junior Developer", Manager: manager}
+//		RecInfo(employee)
+//	}
+
+// -----------------------------------------------------------------------------------
+
+// Временная структура для хранения информации о книге
+// Создайте анонимную структуру для хранения информации о книге с полями Title и Author.
+// Напишите функцию, которая принимает эту анонимную структуру и выводит информацию о книге.
+
+// package main
+
+// import "fmt"
+
+// func printBookInfo(book struct {
+// 	Title  string
+// 	Author string
+// }) {
+// 	fmt.Printf("Title: %s\nAuthor: %s", book.Title, book.Author)
+// }
+// func main() {
+// 	book := struct {
+// 		Title  string
+// 		Author string
+// 	}{
+// 		Title:  "Не грусти! Рецепты счастья и лекарство от груст",
+// 		Author: "Аид аль-Карни",
+// 	}
+// 	printBookInfo(book)
+// }
+
+//-----------------------------------------------------------------------------------
+
+// Временная структура для хранения информации о продукте
+// Создайте анонимную структуру для хранения информации о продукте с полями Name и Price.
+//Напишите функцию, которая принимает эту анонимную структуру и возвращает строку с описанием продукта.
+
+// package main
+
+// import "fmt"
+
+// func PrintProductInfo(Product struct {
+// 	Name  string
+// 	Price float64
+// }) string {
+// 	return fmt.Sprintf("Name:%s\nPrice:%.2f", Product.Name, Product.Price)
+// }
+// func main() {
+// 	Product := struct {
+// 		Name  string
+// 		Price float64
+// 	}{
+// 		Name:  "Laptop",
+// 		Price: 6500,
+// 	}
+// 	fmt.Println(PrintProductInfo(Product))
+// }
+
+//-----------------------------------------------------------------------------------
+
+// Временная структура для хранения информации о событии
+// Создайте анонимную структуру для хранения информации о событии с полями EventName и Date.
+// Напишите функцию, которая принимает эту анонимную структуру и возвращает строку с описанием события.
+// package main
+
+// import "fmt"
+
+// func TheEvent(Event struct {
+// 	EventName string
+// 	Date      string
+// }) string {
+// 	return fmt.Sprintf("EventName: %s\nDate: %s", Event.EventName, Event.Date)
+// }
+// func main() {
+// 	Event := struct {
+// 		EventName string
+// 		Date      string
+// 	}{
+// 		EventName: "The HumoLab's jubilee",
+// 		Date:      "27.07.2024",
+// 	}
+// 	fmt.Println(TheEvent(Event))
+// }
