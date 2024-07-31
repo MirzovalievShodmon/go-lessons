@@ -565,5 +565,24 @@
 // 	fmt.Println(len(slice2), cap(slice2))
 // }
 
+// -----------------------------------------------------------------------------------
+
+// ЗАДАЧА
+// Создать копию массива.
+
+// package main
+
+// import "fmt"
+
+// func copyArray(arr []int) []int {
+// 	copyArr := make([]int, len(arr))
+// 	copy(copyArr, arr)
+// 	return copyArr
+// }
+// func main() {
+// 	arr := []int{1, 2, 3, 4, 5}
+// 	fmt.Println(copyArray(arr)) // [1 2 3 4 5]
+// }
 
 //-----------------------------------------------------------------------------------
+

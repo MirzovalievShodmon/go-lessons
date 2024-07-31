@@ -184,26 +184,94 @@
 //-----------------------------------------------------------------------------------
 
 // Объединить два массива.
-package main
 
-import "fmt"
+// package main
 
-func main() {
-	slice1 := make([]float64, 10)
-	slice2 := make([]float64, 10)
-	for i := 0; i < len(slice1); i++ {
-		fmt.Scan(&slice1[i], " ")
-	}
-	for i := 0; i < len(slice2); i++ {
-		fmt.Scan(&slice1[2], " ")
-	}
-	slice := slice1
-	for i := 0; i < len(slice1); i++ {
-		for j := 1; j < len(slice2); j++ {
-			if slice1[i] == slice2[j] {
-				slice = append(slice, slice2[j])
-			}
-		}
-	}
-	fmt.Println(slice)
-}
+// import "fmt"
+
+// func main() {
+// 	// Определяем исходные срезы
+// 	slice1 := []float64{0, 1, 2, 1, 4, 5, 6, 7, 8, 9}
+// 	slice2 := []float64{10, 2, 1, 13, 14, 15, 16, 17, 18, 19}
+
+// 	// Объединяем срезы
+// 	combined := append(slice1, slice2...)
+
+// 	// Создаем новый срез для уникальных элементов
+// 	result := []float64{}
+
+// 	// Проходим по всем элементам объединенного среза
+// 	for _, value := range combined {
+// 		// Проверяем, есть ли уже этот элемент в результирующем срезе
+// 		found := false
+// 		for _, existing := range result {
+// 			if value == existing {
+// 				found = true
+// 				break
+// 			}
+// 		}
+// 		// Если элемент не найден в результирующем срезе, добавляем его
+// 		if !found {
+// 			result = append(result, value)
+// 		}
+// 	}
+
+// 	// Выводим результат
+// 	fmt.Println(result)
+// }
+// // if found ==>> if found==true
+// // if !found ==>> if found==false
+
+//-----------------------------------------------------------------------------------
+
+// Поменять местами максимальный и минимальный элементы массива.
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	slice := []float64{1, 5, 3, 2, 4}
+// 	minind := 0
+// 	maxind := 0
+// 	for i := 1; i < len(slice); i++ {
+// 		if slice[i] <= slice[minind] {
+// 			minind = i
+// 		}
+// 		if slice[i] >= slice[maxind] {
+// 			maxind = i
+// 		}
+// 	}
+// 	slice[minind], slice[maxind] = slice[maxind], slice[minind]
+// 	fmt.Println(slice)
+// }
+
+//-----------------------------------------------------------------------------------
+
+// Проверить, является ли массив палиндромом.
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	slice := []int{10, 23, 21, 6, 78, 78, 6, 21, 23, 10}
+// 	mid := len(slice) / 2
+// 	left := slice[:mid]
+// 	right := slice[mid+(mid+1)%2:]
+// 	c := 0
+// 	for i := 0; i < mid; i++ {
+// 		j := mid - i - 1
+// 		if left[i] == right[j] {
+// 			c++
+// 		} else {
+// 			break
+// 		}
+// 	}
+// 	if c == mid {
+// 		fmt.Println("Массив является палиндромом.")
+// 	} else {
+// 		fmt.Println("Массив не является палиндромом.")
+
+// 	}
+// }
+
+//-----------------------------------------------------------------------------------
