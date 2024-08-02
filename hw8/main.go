@@ -275,3 +275,43 @@
 // }
 
 //-----------------------------------------------------------------------------------
+
+//Найти второе наибольшее число в массиве.
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	slice := []float64{1, 45, 3, 6, 8, 4, 5, 8, 25, 6}
+// 	maxslice := slice[0]
+// 	result := slice[0]
+// 	for i := 1; i < len(slice); i++ {
+// 		if slice[i] >= maxslice {
+// 			result = maxslice
+// 			maxslice = slice[i]
+// 		} else if slice[i] <= maxslice && result <= slice[i] {
+// 			result = slice[i]
+// 		}
+// 	}
+// 	fmt.Println(result)
+// }
+
+//-----------------------------------------------------------------------------------
+
+//Перевернуть массив.
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	slice := []float64{26, 56, 58, 62, 26, 12, 36, 32, 12}
+// 	n := len(slice)
+// 	m := n / 2
+// 	for i := 0; i < m; i++ {
+// 		slice[i], slice[2*m-(n+1)%2-i] = slice[2*m-(n+1)%2-i], slice[i]
+// 	}
+// 	fmt.Println(slice)
+// }
+
+//-----------------------------------------------------------------------------------
+

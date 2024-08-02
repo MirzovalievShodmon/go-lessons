@@ -586,3 +586,30 @@
 
 //-----------------------------------------------------------------------------------
 
+//ЗАДАЧА
+//ОДАМКАШОНИ ВА ЧУНИН МОШИН
+// package main
+
+// import "fmt"
+
+// type car struct {
+// 	color string
+// 	brend string
+// 	model string
+// 	count int
+// }
+
+//	func (c car) odamKashoni(d int) int {
+//		result := 1 + d + c.count
+//		return result
+//	}
+//
+//	func main() {
+//		var c car = car{
+//			count: 1,
+//		}
+//		fmt.Println(c.odamKashoni(3))
+//	}
+
+// -------------------------------------------------------------------------------------------------
+
