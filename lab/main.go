@@ -613,3 +613,140 @@
 
 // -------------------------------------------------------------------------------------------------
 
+// Вариант 17
+// Напишите функцию, которая принимает срез структур Animal и возвращает структуру
+//Animal, у которой средний возраст наибольший.
+
+// package main
+
+// import (
+// 	"fmt"
+// )
+
+// type Animal struct {
+// 	Name string
+// 	Age  int
+// }
+
+// func AnimalWithHighestAverageAge(animals []Animal) Animal {
+// 	if len(animals) == 0 {
+// 		return Animal{}
+// 	}
+
+// 	highestAverageAgeAnimal := animals[0]
+// 	highestAverageAge := float64(highestAverageAgeAnimal.Age)
+
+// 	for _, animal := range animals {
+// 		averageAge := float64(animal.Age)
+// 		if averageAge > highestAverageAge {
+// 			highestAverageAge = averageAge
+// 			highestAverageAgeAnimal = animal
+// 		}
+// 	}
+
+// 	return highestAverageAgeAnimal
+// }
+
+// func main() {
+// 	animals := []Animal{
+// 		{"Lion", 10},
+// 		{"Elephant", 25},
+// 		{"Giraffe", 15},
+// 		{"Tiger", 12},
+// 	}
+
+// 	result := AnimalWithHighestAverageAge(animals)
+// 	fmt.Printf("Animal with the highest average age: %s, Age: %d\n", result.Name, result.Age)
+// }
+
+//-------------------------------------------------------------------------------------------------
+
+// Обрабо1.Изменение среза внутри функции
+// package main
+
+// import (
+// 	"fmt"
+// )
+
+// func modifySlice(s []int) {
+// 	for i := range s {
+// 		s[i] = s[i] * 2
+// 	}
+// }
+
+// func main() {
+// 	slice := []int{1, 2, 3, 4, 5}
+// 	fmt.Println("Before:", slice)
+// 	modifySlice(slice)
+// 	fmt.Println("After:", slice)
+// }
+
+// 2. Добавление элементов в срез
+// package main
+
+// import (
+// 	"fmt"
+// )
+
+// func appendToSlice(s []int) []int {
+// 	s = append(s, 10)
+// 	fmt.Println("Inside function:", s)
+// 	return s
+// }
+
+// func main() {
+// 	slice := []int{1, 2, 3}
+// 	fmt.Println("Before:", slice)
+// 	slice = appendToSlice(slice)
+// 	fmt.Println("After:", slice)
+// }
+
+// 3. Передача среза без изменения исходного среза
+// package main
+
+// import (
+// 	"fmt"
+// )
+
+// func modifySliceCopy(s []int) {
+// 	for i := range s {
+// 		s[i] = s[i] * 2
+// 	}
+// }
+
+// func main() {
+// 	slice := []int{1, 2, 3, 4, 5}
+// 	fmt.Println("Before:", slice)
+// 	sliceCopy := append([]int(nil), slice...)
+// 	modifySliceCopy(sliceCopy)
+// 	fmt.Println("After:", slice)
+// 	fmt.Println("Modified Copy:", sliceCopy)
+// }
+
+package main
+
+import "fmt"
+
+type Rectangle struct {
+	width, height float64
+}
+
+// Area Public метод
+func (r Rectangle) Area() float64 {
+	return r.width * r.height
+}
+
+// private метод
+func (r *Rectangle) scale(factor float64) {
+	r.width *= factor
+	r.height *= factor
+}
+
+func main() {
+	rect := Rectangle{width: 10, height: 5}
+	fmt.Println("Area:", rect.Area()) // Output: Area: 50
+
+	// Вызов приватного метода изнутри пакета
+	rect.scale(2)
+	fmt.Println("Scaled Area:", rect.Area()) // Output: Scaled Area: 200
+}

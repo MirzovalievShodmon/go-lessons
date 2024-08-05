@@ -315,3 +315,30 @@
 
 //-----------------------------------------------------------------------------------
 
+//Удалить дубликаты из массива.
+
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	slice := []float64{1, 2, 3, 4, 5, 6, 3, 4, 6}
+// 	Theslice := []float64{}
+
+// 	for i := 0; i < len(slice); i++ {
+// 		duplicateFound := false
+// 		for j := 0; j < len(Theslice); j++ {
+// 			if slice[i] == Theslice[j] {
+// 				duplicateFound = true
+// 				break
+// 			}
+// 		}
+// 		if !duplicateFound {
+// 			Theslice = append(Theslice, slice[i])
+// 		}
+// 	}
+
+// 	fmt.Println(Theslice)
+// }
+
+//-----------------------------------------------------------------------------------

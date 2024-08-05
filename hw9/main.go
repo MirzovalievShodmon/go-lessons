@@ -16,12 +16,13 @@
 // func main() {
 // 	slice := []int{10, 2, 7, 58, 6}
 // 	bubbleSort(slice)
-// 	fmt.Println(slice) 
+// 	fmt.Println(slice)
 // }
 
 //------------------------------------------------------------------------------------
 
 // Отсортировать срез строк, содержащих имена животных, в порядке возрастания.
+
 // package main
 
 // import "fmt"
@@ -63,3 +64,27 @@
 // }
 
 //------------------------------------------------------------------------------------
+
+// Реализовать пузырьковую сортировку для среза структур Person, отсортировать по возрасту в порядке убывания.
+
+// package main
+
+// import "fmt"
+
+// type Person struct {
+// 	Name string
+// 	Age  int
+// }
+
+// func main() {
+// 	slice := []Person{{"Abussabur", 25}, {"Shodmon", 23}, {"Valy", 35}}
+// 	n := len(slice)
+// 	for i := 0; i < n-1; i++ {
+// 		for j := 0; j < n-1-i; j++ {
+// 			if slice[j].Age <= slice[j+1].Age {
+// 				slice[j], slice[j+1] = slice[j+1], slice[j]
+// 			}
+// 		}
+// 	}
+// 	fmt.Println(slice)
+// }
