@@ -723,30 +723,30 @@
 // 	fmt.Println("Modified Copy:", sliceCopy)
 // }
 
-package main
+// package main
 
-import "fmt"
+// import "fmt"
 
-type Rectangle struct {
-	width, height float64
-}
+// type Rectangle struct {
+// 	width, height float64
+// }
 
-// Area Public метод
-func (r Rectangle) Area() float64 {
-	return r.width * r.height
-}
+// // Area Public метод
+// func (r Rectangle) Area() float64 {
+// 	return r.width * r.height
+// }
 
-// private метод
-func (r *Rectangle) scale(factor float64) {
-	r.width *= factor
-	r.height *= factor
-}
+// // private метод
+// func (r *Rectangle) scale(factor float64) {
+// 	r.width *= factor
+// 	r.height *= factor
+// }
 
-func main() {
-	rect := Rectangle{width: 10, height: 5}
-	fmt.Println("Area:", rect.Area()) // Output: Area: 50
+// func main() {
+// 	rect := Rectangle{width: 10, height: 5}
+// 	fmt.Println("Area:", rect.Area()) // Output: Area: 50
 
-	// Вызов приватного метода изнутри пакета
-	rect.scale(2)
-	fmt.Println("Scaled Area:", rect.Area()) // Output: Scaled Area: 200
-}
+// 	// Вызов приватного метода изнутри пакета
+// 	rect.scale(2)
+// 	fmt.Println("Scaled Area:", rect.Area()) // Output: Scaled Area: 200
+// }
