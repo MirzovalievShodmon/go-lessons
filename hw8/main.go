@@ -342,3 +342,77 @@
 // }
 
 //-----------------------------------------------------------------------------------
+
+// Переместить все нули в конце массива, сохраняя порядок
+// ненулевых элементов.
+
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	slice := []float64{32, 68, 0, 19, 26, 0, 37}
+// 	s := []float64{}
+// 	c := []float64{}
+// 	for _, v := range slice {
+// 		if v != 0 {
+// 			s = append(s, v)
+// 		} else {
+// 			c = append(c, v)
+// 		}
+// 	}
+// 	slice = append(s, c...)
+// 	fmt.Println(slice)
+// }
+
+//-----------------------------------------------------------------------------------
+
+//Найти пересечение двух массивов.
+
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	slice1 := []float64{1, 2, 3, 4, 5, 6, 3, 4, 6, 0}
+// 	slice2 := []float64{4, 0, 3, 34, 5, 6, 0, 4, 66, 45, 24, 9}
+// 	slice := []float64{}
+// 	Theslice1 := []float64{}
+// 	Theslice2 := []float64{}
+// 	for i := 0; i < len(slice1); i++ {
+// 		duplicateFound := false
+// 		for j := 0; j < len(Theslice1); j++ {
+// 			if slice1[i] == Theslice1[j] {
+// 				duplicateFound = true
+// 				break
+// 			}
+// 		}
+// 		if !duplicateFound {
+// 			Theslice1 = append(Theslice1, slice1[i])
+// 		}
+// 	}
+// 	for i := 0; i < len(slice2); i++ {
+// 		duplicateFound := false
+// 		for j := 0; j < len(Theslice2); j++ {
+// 			if slice2[i] == Theslice2[j] {
+// 				duplicateFound = true
+// 				break
+// 			}
+// 		}
+// 		if !duplicateFound {
+// 			Theslice2 = append(Theslice2, slice2[i])
+// 		}
+// 	}
+// 	for _, v := range Theslice1 {
+// 		for i := 0; i < len(Theslice2); i++ {
+// 			if v == Theslice2[i] {
+// 				slice = append(slice, v)
+// 				break
+// 			}
+// 		}
+// 	}
+// 	fmt.Println(slice)
+// }
+
+//-----------------------------------------------------------------------------------
+

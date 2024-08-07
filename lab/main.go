@@ -750,3 +750,129 @@
 // 	rect.scale(2)
 // 	fmt.Println("Scaled Area:", rect.Area()) // Output: Scaled Area: 200
 // }
+
+//-------------------------------------------------------------------------------------------------
+
+// package main
+
+// import (
+// 	"fmt"
+// 	"strings"
+// )
+
+// func main() {
+// s := "Hello World"
+// c := s[1]
+// fmt.Println(c)
+// sub := s[6:11]
+// fmt.Println(sub)
+// s1 := "abc"
+// s2 := "def"
+// fmt.Println(s1 == s2)
+// fmt.Println(s1 < s2)
+// fmt.Println(s1 > s2)
+// fmt.Println(strings.Contains(s, "World"))
+// fmt.Println(strings.Index(s, "Word"))    // 6 (начальный индекс)
+// fmt.Println(strings.Contains(s, "W"))
+// s:="Hello , 世界"
+// s1 := "Hello"
+// s2 := "Go"
+// s := s1 + " " + s2
+// fmt.Println(s)
+// s := "Hello Go Hello Go Hello Go Hello Stop Hello Go Stop"
+// count := strings.Count(s, "Stop")
+// fmt.Println(count)
+// hasprefix := strings.HasPrefix(s, "Hello")
+// fmt.Println(hasprefix)
+// hassuffix := strings.HasSuffix(s, "Stop")
+// fmt.Println(hassuffix)
+// index := strings.Index(s, "S")
+// fmt.Println(index)
+// lastindex := strings.LastIndex(s, "")
+// fmt.Println(lastindex)
+// parts := []string{"Hello", "Go", "Hello", "Go", "Hello", "Go", "Hello", "Stop"}
+// joined := strings.Join(parts, ", ")
+// fmt.Println(joined)
+// s := "Bashir"
+// repeat := strings.Repeat(s, 2)
+// fmt.Println(repeat)
+// s := "Hello Go Hello Go Hello Go Hello Stop Hello Go Stop"
+// replaced := strings.Replace(s, "Hello", "Asalom",2)
+// fmt.Println(replaced)
+// replacedall := strings.ReplaceAll(s, "Go", "Walk")
+// fmt.Println(replacedall)
+// s := "abcd"
+// split := strings.Split(s, "")
+// fmt.Println(split)
+// split = strings.SplitN(s, "", 3)
+// fmt.Println(split)
+// s := "HeLlO wOrLd"
+//
+//	lower := strings.ToLower(s)
+//	fmt.Println(lower)
+//	upper := strings.ToUpper(s)
+//	fmt.Println(upper)
+//
+// trimmed := strings.Trim(s, " ")
+// fmt.Println(trimmed)
+// trimmed := strings.TrimSpace(s)
+// fmt.Println(trimmed)
+// prefix := "HeLlO"
+// suffix := "wOrLd"
+// trimprefix := strings.TrimPrefix(s, prefix)
+// trimsuffix := strings.TrimSuffix(s, suffix)
+// fmt.Println(trimprefix)
+// fmt.Println(trimsuffix)
+//
+//		s = "Hello, World!"
+//		newS := strings.Replace(s, "World", "Go", -1)
+//		fmt.Println(newS) // "Hello, Go!"
+//	}
+// package main
+
+// import "fmt"
+
+// type Person struct {
+// 	name string
+// 	age  int
+// }
+
+// func (p Person) Introduce() {
+// 	fmt.Printf("Hi, I'm %s and I'm %d years old.\n", p.name, p.age)
+// }
+
+// type Employee struct {
+// 	Person
+// 	position string
+// }
+
+// // Introduce
+// // Переопределение метода Introduce для Employee
+//
+//	func (e Employee) Introduce() {
+//		fmt.Printf("Hi, I'm %s, a %s, and I'm %d years old.\n", e.name, e.position, e.age)
+//	}
+//
+//	func main() {
+//		p := Person{name: "Alice", age: 30}
+//		e := Employee{Person: Person{name: "Bob", age: 40}, position: "Manager"}
+//		p.Introduce() // Output: Hi, I'm Alice and I'm 30 years old.
+//		e.Introduce() // Output: Hi, I'm Bob, a Manager, and I'm 40 years old.
+//	}
+package main
+
+import (
+	"fmt"
+	"unicode"
+)
+
+func main() {
+	r := 'a'
+	fmt.Println(string(unicode.ToUpper(r))) // "A"
+	r = 'A'
+	fmt.Println(string(unicode.ToLower(r))) // "a"
+	fmt.Println(unicode.ToUpper(r))
+	fmt.Println(unicode.ToLower(r))
+	s:="Abdussabur"
+	fmt.Println(s[0])
+}

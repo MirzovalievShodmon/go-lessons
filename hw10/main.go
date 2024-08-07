@@ -413,48 +413,134 @@
 // ⦁ AddNote(content string, tags []string)
 // ⦁ NotesWithTag(tag string) []Note
 
-package main
+// package main
 
-import (
-	"fmt"
-)
+// import (
+// 	"fmt"
+// )
 
-type Note struct {
-	content string
-	tags    []string
-}
+// type Note struct {
+// 	content string
+// 	tags    []string
+// }
 
-type Notebook struct {
-	notes []Note
-}
+// type Notebook struct {
+// 	notes []Note
+// }
 
-func (n *Notebook) AddNote(content string, tags []string) {
-	n.notes = append(n.notes, Note{content: content, tags: tags})
-}
+// func (n *Notebook) AddNote(content string, tags []string) {
+// 	n.notes = append(n.notes, Note{content: content, tags: tags})
+// }
 
-func (n *Notebook) NotesWithTag(tag string) []Note {
-	var result []Note
-	for _, note := range n.notes {
-		for _, t := range note.tags {
-			if t == tag {
-				result = append(result, note)
-				break
-			}
-		}
-	}
-	return result
-}
+// func (n *Notebook) NotesWithTag(tag string) []Note {
+// 	var result []Note
+// 	for _, note := range n.notes {
+// 		for _, t := range note.tags {
+// 			if t == tag {
+// 				result = append(result, note)
+// 				break
+// 			}
+// 		}
+// 	}
+// 	return result
+// }
 
-func main() {
-	nb := &Notebook{}
+// func main() {
+// 	nb := &Notebook{}
 
-	nb.AddNote("Заметка 1", []string{"работа", "важное"})
-	nb.AddNote("Заметка 2", []string{"личное", "записка"})
-	nb.AddNote("Заметка 3", []string{"работа", "проект"})
+// 	nb.AddNote("Заметка 1", []string{"работа", "важное"})
+// 	nb.AddNote("Заметка 2", []string{"личное", "записка"})
+// 	nb.AddNote("Заметка 3", []string{"работа", "проект"})
 
-	notes := nb.NotesWithTag("работа")
+// 	notes := nb.NotesWithTag("работа")
 
-	for _, note := range notes {
-		fmt.Println("Заметка: ", note.content)
-	}
-}
+// 	for _, note := range notes {
+// 		fmt.Println("Заметка: ", note.content)
+// 	}
+// }
+
+//------------------------------------------------------------------------------------
+
+// ⦁ Управление зарплатами
+// ⦁ Описание: Реализуйте структуру Employee с полями name и salary.
+// Реализуйте структуру Payroll с срезом сотрудников и методы для
+// добавления сотрудника и получения средней зарплаты.
+// ⦁ Методы:
+// ⦁ AddEmployee(name string, salary float64)
+// ⦁ AverageSalary() float64
+
+// package main
+
+// import "fmt"
+
+// type Employee struct {
+// 	name   string
+// 	salary float64
+// }
+// type Payroll struct {
+// 	Employees []Employee
+// }
+
+// func (p *Payroll) AddEmployee(name string, salary float64) {
+// 	p.Employees = append(p.Employees, Employee{name: name, salary: salary})
+// }
+// func (p *Payroll) AverageSalary() float64 {
+// 	AverageSalary := float64(0)
+// 	for _, v := range p.Employees {
+// 		AverageSalary = AverageSalary + v.salary
+// 	}
+// 	return AverageSalary
+// }
+// func main() {
+// 	emp := Payroll{}
+// 	emp.AddEmployee("Shodmon", 25000)
+// 	emp.AddEmployee("Valy", 26000)
+// 	emp.AddEmployee("Abdussabur", 36000)
+// 	fmt.Println(emp.Employees)
+// 	fmt.Println(emp.AverageSalary())
+// }
+
+//------------------------------------------------------------------------------------
+
+// ⦁ Разделение бюджета
+// ⦁ Описание: Реализуйте структуру Budget с полем amount. Реализуйте
+// метод Allocate, который выделяет сумму из бюджета, если сумма
+// доступна. Реализуйте метод Remaining для получения оставшегося
+// бюджета.
+// ⦁ Методы:
+// ⦁ Allocate(amount float64) bool
+// ⦁ Remaining() float64
+
+// package main
+
+// import "fmt"
+
+// type Budget struct {
+// 	amount float64
+// }
+
+// func (b *Budget) Allocate(amount float64) bool {
+// 	if amount <= b.amount {
+// 		b.amount -= amount
+// 		return true
+// 	}
+// 	return false
+// }
+// func (b *Budget) Remaining() float64 {
+// 	return b.amount
+// }
+// func main() {
+// 	budget := Budget{amount: 1000.0}
+// 	if budget.Allocate(250.0) {
+// 		fmt.Println("Сумма выделена успешно")
+// 	} else {
+// 		fmt.Println("Недостаточно средств для выделения")
+// 	}
+// 	fmt.Printf("Оставшийся бюджет: %.2f\n", budget.Remaining())
+// 	if budget.Allocate(800.0) {
+// 		fmt.Println("Сумма выделена успешно")
+// 	} else {
+// 		fmt.Println("Недостаточно средств для выделения")
+// 	}
+// 	fmt.Printf("Оставшийся бюджет: %.2f\n", budget.Remaining())
+// }
