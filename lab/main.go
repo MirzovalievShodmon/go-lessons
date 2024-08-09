@@ -659,7 +659,7 @@
 // 	fmt.Printf("Animal with the highest average age: %s, Age: %d\n", result.Name, result.Age)
 // }
 
-//-------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
 
 // Обрабо1.Изменение среза внутри функции
 // package main
@@ -859,20 +859,60 @@
 //		p.Introduce() // Output: Hi, I'm Alice and I'm 30 years old.
 //		e.Introduce() // Output: Hi, I'm Bob, a Manager, and I'm 40 years old.
 //	}
+// package main
+
+// import (
+// 	"fmt"
+// 	"unicode"
+// )
+
+//	func main() {
+//		r := 'a'
+//		fmt.Println(string(unicode.ToUpper(r))) // "A"
+//		r = 'A'
+//		fmt.Println(string(unicode.ToLower(r))) // "a"
+//		fmt.Println(unicode.ToUpper(r))
+//		fmt.Println(unicode.ToLower(r))
+//		s:="Abdussabur"
+//		fmt.Println(s[0])
+//	}
+
 package main
 
-import (
-	"fmt"
-	"unicode"
-)
+import "fmt"
+
+// Функция для проверки наличия дубликатов значений в map
+func hasDuplicateValues(m map[string]int) bool {
+    seen := make(map[int]bool) // Карта для отслеживания встреченных значений
+
+    for _, value := range m {
+        if _, exists := seen[value]; exists {
+            // Если значение уже встречалось, возвращаем true
+            return true
+        }
+        // Добавляем значение в карту как встреченное
+        seen[value] = true
+    }
+    
+    // Если дубликаты не найдены, возвращаем false
+    return false
+}
 
 func main() {
-	r := 'a'
-	fmt.Println(string(unicode.ToUpper(r))) // "A"
-	r = 'A'
-	fmt.Println(string(unicode.ToLower(r))) // "a"
-	fmt.Println(unicode.ToUpper(r))
-	fmt.Println(unicode.ToLower(r))
-	s:="Abdussabur"
-	fmt.Println(s[0])
+    m := map[string]int{
+        "apple":  1,
+        "banana": 2,
+        "cherry": 3,
+    }
+    
+    fmt.Println("Есть ли дубликаты значений?", hasDuplicateValues(m)) // Output: false
+    
+    // Пример с дубликатами
+    mWithDuplicates := map[string]int{
+        "apple":  1,
+        "banana": 2,
+        "cherry": 1,
+    }
+    
+    fmt.Println("Есть ли дубликаты значений?", hasDuplicateValues(mWithDuplicates)) // Output: true
 }

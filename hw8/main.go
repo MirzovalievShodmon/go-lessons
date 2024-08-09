@@ -416,3 +416,35 @@
 
 //-----------------------------------------------------------------------------------
 
+// Проверить, является ли массив подмножеством другого массива.
+
+package main
+
+import "fmt"
+
+func isSubset(slice1, slice2 []float64) bool {
+	for _, v1 := range slice1 {
+		found := false
+		for i, v2 := range slice2 {
+			if v1 == v2 {
+				slice2[i] = -1 // Используем -1 или любой другой уникальный маркер, чтобы исключить этот элемент из последующих проверок
+				found = true
+				break
+			}
+		}
+		if !found {
+			return false
+		}
+	}
+	return true
+}
+func main() {
+	slice1 := []float64{60, 7, 3, 4, 2, 2, 0, 45}
+	slice2 := []float64{0, 2, 4, 0, 2, 4, 0, 60, 7, 0, 3, 45, 0, 45}
+
+	if isSubset(slice1, slice2) {
+		fmt.Println("Да, является подмножеством")
+	} else {
+		fmt.Println("Нет, не является подмножеством")
+	}
+}

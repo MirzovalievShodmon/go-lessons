@@ -227,7 +227,7 @@ func Inversion(S string) string {
 	for i := 0; i < n; i++ {
 		for k >= 0 {
 			k--
-			S[i], S[n-i] = S[n-i], S[i]
+			string(S[i]), string(S[n-i]) = string(S[n-i]), string(S[i])
 		}
 	}
 	return S
@@ -240,4 +240,3 @@ func main() {
 
 // Подсчет символов
 // Напишите функцию, которая подсчитывает количество каждого символа в строке и возвращает карту с результатами.
-
