@@ -324,40 +324,99 @@
 
 // import "fmt"
 
-// // Функция для проверки наличия дубликатов значений в map
-// func hasDuplicateValues(m map[string]int) bool {
-//     seen := make(map[int]bool) // Карта для отслеживания встреченных значений
-
-//     for _, value := range m {
-//         if _, exists := seen[value]; exists {
-//             // Если значение уже встречалось, возвращаем true
-//             return true
-//         }
-//         // Добавляем значение в карту как встреченное
-//         seen[value] = true
-//     }
-
-//     // Если дубликаты не найдены, возвращаем false
-//     return false
+// func hasDuplicates(m map[string]int) bool {
+// 	seen := make(map[int]bool)
+// 	for _, value := range m {
+// 		if seen[value] {
+// 			return true
+// 		}
+// 		seen[value] = true
+// 	}
+// 	return false
+// }
+// func main() {
+// 	m := map[string]int{"a": 1, "b": 2, "c": 1}
+// 	fmt.Println("Has duplicates:", hasDuplicates(m))
 // }
 
+//3 СПОСОБ
+
+// package main
+
+// import "fmt"
+
+// func proverdubl(m map[string]int) bool {
+// 	val := make(map[int]int)
+// 	for _, v := range m {
+// 		val[v]++
+// 		if val[v] > 1 {
+// 			return true
+// 		}
+// 	}
+// 	return false
+// }
 // func main() {
-//     m := map[string]int{
-//         "apple":  1,
-//         "banana": 2,
-//         "cherry": 3,
-//     }
-
-//     fmt.Println("Есть ли дубликаты значений?", hasDuplicateValues(m)) // Output: false
-
-//     // Пример с дубликатами
-//     mWithDuplicates := map[string]int{
-//         "apple":  1,
-//         "banana": 2,
-//         "cherry": 1,
-//     }
-
-//     fmt.Println("Есть ли дубликаты значений?", hasDuplicateValues(mWithDuplicates)) // Output: true
+// 	Map := map[string]int{
+// 		"a": 1,
+// 		"b": 2,
+// 		"v": 3,
+// 		"g": 2,
+// 	}
+// 	fmt.Println(proverdubl(Map))
 // }
 
 //-----------------------------------------------------------------------------------
+
+// ⦁ Получение всех значений
+// Описание: Напишите функцию, которая возвращает все значения из map в срезе.
+
+// package main
+
+// import "fmt"
+
+// func Return(m map[string]int) []int {
+// 	slice := make([]int, 0, len(m))
+// 	for _, v := range m {
+// 		slice = append(slice, v)
+// 	}
+// 	return slice
+// }
+// func main() {
+// 	Map := map[string]int{
+// 		"Shomdon":    23,
+// 		"Valy":       31,
+// 		"Abdussabur": 36,
+// 	}
+// 	fmt.Println(Return(Map))
+// }
+
+//-----------------------------------------------------------------------------------
+
+// ⦁ Подсчет уникальных значений в срезе строк
+// Описание: Напишите функцию, которая подсчитывает уникальные значения в срезе строк с использованием map.
+
+// package main
+
+// import "fmt"
+
+// // Number подсчитывает количество строк, которые встречаются ровно один раз
+// func Number(slice []string) int {
+// 	// Создаем карту для хранения количества вхождений каждого элемента
+// 	countMap := make(map[string]int)
+// 	// Заполняем карту количеством вхождений каждого элемента
+// 	for _, v := range slice {
+// 		countMap[v]++
+// 	}
+// 	// Подсчитываем количество элементов, которые встречаются ровно один раз
+// 	uniqueCount := 0
+// 	for _, count := range countMap {
+// 		if count == 1 {
+// 			uniqueCount++
+// 		}
+// 	}
+// 	return uniqueCount
+// }
+// func main() {
+// 	slice := []string{"Arabic", "Tajik", "Ruddian", "English", "Arabic"}
+// 	fmt.Println(Number(slice)) // Выводит 3
+// }

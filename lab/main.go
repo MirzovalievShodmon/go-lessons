@@ -877,42 +877,175 @@
 //		fmt.Println(s[0])
 //	}
 
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	s := "Hello "
+// 	c := s[5]
+// 	bytes := []byte(s)
+// 	fmt.Println(bytes)
+// 	fmt.Println(c)
+// }
+
+// package main
+
+// import (
+// 	"fmt"
+// 	"unicode/utf8"
+// )
+
+// func main() {
+// 	s := "Hello, 世界"
+// 	// Длина строки в байтах
+// 	fmt.Println(len(s)) // 13
+// 	// Длина строки в рунах (символах)
+// 	fmt.Println(utf8.RuneCountInString(s)) // 9
+// 	// Итерация по рунам в строке
+// 	for i, r := range s {
+// 		fmt.Printf("%d: %c\n", i, r)
+// 	}
+// }
+
+// Этот пример показывает, как строка "Hello, 世界" занимает 13 байт, но содержит 9
+// символов (рун). Итерация по строке с использованием range позволяет корректно
+// обрабатывать каждый символ Unicode независимо от его длины в байтах.
+
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	str:="ABCD"
+// 	// fmt.Println(str[0])
+// 	// fmt.Printf("%b\n",str[1])
+// 		fmt.Printf("type:%T,value:%v\n",str,str)
+// }
+
+// -----------------------------------------------
+// package main
+
+// import "fmt"
+
+// // Интерфейс PointerOperations с методами Increment и Decrement
+// type PointerOperations interface {
+// 	Increment()
+// 	Decrement()
+// }
+
+// // Структура IntPointer с указателем на целое число
+// type IntPointer struct {
+// 	Int *int
+// }
+
+// // Метод Increment увеличивает значение на 1
+// func (i *IntPointer) Increment() {
+// 	if i.Int != nil {
+// 		(*i.Int)++ // Увеличение значения по указателю
+// 	}
+// }
+
+// // Метод Decrement уменьшает значение на 1
+// func (i *IntPointer) Decrement() {
+// 	if i.Int != nil {
+// 		(*i.Int)-- // Уменьшение значения по указателю
+// 	}
+// }
+
+// // Функция A, принимающая интерфейс PointerOperations
+// func A(po PointerOperations) {
+// 	po.Decrement()
+// 	po.Increment()
+// }
+
+// // Функция B, создающая объект IntPointer и вызывающая функцию A
+// func B() {
+// 	val := 63
+// 	ip := IntPointer{Int: &val}
+// 	A(&ip) // Передача указателя на IntPointer
+// 	fmt.Println(*ip.Int) // Вывод изменённого значения
+// }
+
+// // Основная функция
+// func main() {
+// 	B()
+// }
+//----------------------------------------------
+/////////////////УКАЗАТЕЛЬ/////////////////
+
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	var pointer *int
+// 	fmt.Println(pointer)
+// 	intt:=65
+// 	pointer=&intt
+// 	fmt.Println(pointer)
+// 	fmt.Println(*pointer)
+// }
+//--------------------------------------------------
+
+// package main
+
+// import (
+// 	"fmt"
+// 	"strings"
+// )
+
+// func main() {
+// 	parts := []string{"Hello", "Go", "Hello", "Go", "Hello", "Go", "Hello", "Stop"}
+// 	joined := strings.Join(parts, ", ")
+// 	fmt.Println(joined)
+// }
+
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
-// Функция для проверки наличия дубликатов значений в map
-func hasDuplicateValues(m map[string]int) bool {
-    seen := make(map[int]bool) // Карта для отслеживания встреченных значений
-
-    for _, value := range m {
-        if _, exists := seen[value]; exists {
-            // Если значение уже встречалось, возвращаем true
-            return true
-        }
-        // Добавляем значение в карту как встреченное
-        seen[value] = true
-    }
-    
-    // Если дубликаты не найдены, возвращаем false
-    return false
+// StringConcatenator интерфейс с методами Concat и Join
+type StringConcatenator interface {
+	Concat() string
+	Join(separator string) string
 }
 
+// StringJoiner структура для работы с массивами строк
+type StringJoiner struct {
+	slices []string
+}
+
+// Concat объединяет все строки в массиве
+func (sj StringJoiner) Concat() string {
+	result := ""
+	for _, v := range sj.slices {
+		result += v
+	}
+	return result
+}
+
+// Join объединяет все строки с заданным разделителем
+func (sj StringJoiner) Join(separator string) string {
+	return strings.Join(sj.slices, separator)
+}
+
+// Функция A принимает интерфейс StringConcatenator и выводит результат работы методов
+func A(s StringConcatenator) {
+	fmt.Println("Concatenated string:", s.Concat())
+	fmt.Println("Joined string with separator:", s.Join(", ")) // Задаем разделитель здесь
+}
+
+// Функция B создает экземпляр StringJoiner и вызывает функцию A
+func B() {
+	sj := StringJoiner{slices: []string{"I", "want", "to", "learn", "Golang"}}
+	A(sj)
+}
+
+// Основная функция
 func main() {
-    m := map[string]int{
-        "apple":  1,
-        "banana": 2,
-        "cherry": 3,
-    }
-    
-    fmt.Println("Есть ли дубликаты значений?", hasDuplicateValues(m)) // Output: false
-    
-    // Пример с дубликатами
-    mWithDuplicates := map[string]int{
-        "apple":  1,
-        "banana": 2,
-        "cherry": 1,
-    }
-    
-    fmt.Println("Есть ли дубликаты значений?", hasDuplicateValues(mWithDuplicates)) // Output: true
+	B()
 }
