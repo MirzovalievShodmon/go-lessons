@@ -1004,48 +1004,50 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"strings"
+	"os"
 )
 
-// StringConcatenator интерфейс с методами Concat и Join
-type StringConcatenator interface {
-	Concat() string
-	Join(separator string) string
-}
-
-// StringJoiner структура для работы с массивами строк
-type StringJoiner struct {
-	slices []string
-}
-
-// Concat объединяет все строки в массиве
-func (sj StringJoiner) Concat() string {
-	result := ""
-	for _, v := range sj.slices {
-		result += v
+// countCharacters принимает имя файла, считывает его содержимое и возвращает количество символов
+func countCharacters(fileName string) (int, error) {
+	// Открываем файл
+	file, err := os.Open(fileName)
+	if err != nil {
+		return 0, err
 	}
-	return result
+	defer file.Close()
+
+	// Создаем буфер для чтения файла
+	reader := bufio.NewReader(file)
+
+	var charCount int
+
+	// Читаем файл по строкам
+	for {
+		line, _, err := reader.ReadLine()
+		if err != nil {
+			if err.Error() == "EOF" {
+				// Достигнут конец файла
+				break
+			}
+			return 0, err
+		}
+		charCount += len(line)
+		// Добавляем количество символов новой строки (если требуется)
+		// charCount += len("\n")
+	}
+
+	return charCount, nil
 }
 
-// Join объединяет все строки с заданным разделителем
-func (sj StringJoiner) Join(separator string) string {
-	return strings.Join(sj.slices, separator)
-}
-
-// Функция A принимает интерфейс StringConcatenator и выводит результат работы методов
-func A(s StringConcatenator) {
-	fmt.Println("Concatenated string:", s.Concat())
-	fmt.Println("Joined string with separator:", s.Join(", ")) // Задаем разделитель здесь
-}
-
-// Функция B создает экземпляр StringJoiner и вызывает функцию A
-func B() {
-	sj := StringJoiner{slices: []string{"I", "want", "to", "learn", "Golang"}}
-	A(sj)
-}
-
-// Основная функция
 func main() {
-	B()
+	// Пример использования функции
+	fileName := "example.txt" // Замените на имя вашего файла
+	count, err := countCharacters(fileName)
+	if err != nil {
+		fmt.Println("Ошибка при подсчете символов:", err)
+		return
+	}
+	fmt.Printf("Количество символов в файле '%s': %d\n", fileName, count)
 }
